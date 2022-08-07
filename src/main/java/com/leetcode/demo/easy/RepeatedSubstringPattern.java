@@ -10,7 +10,7 @@ public class RepeatedSubstringPattern {
         System.out.println(new RepeatedSubstringPattern().repeatedSubstringPattern3("abcabcabcabc"));
     }
 
-    // O(n^*n)
+    // O(n*n)
     public boolean repeatedSubstringPattern(String s) {
         if (s == null || s.length() == 0) return false;
         int len = s.length();

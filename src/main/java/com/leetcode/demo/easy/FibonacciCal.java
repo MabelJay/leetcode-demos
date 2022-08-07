@@ -4,7 +4,7 @@ public class FibonacciCal {
     public static void main(String[] args) {
         //F(0) = 0，F(1) = 1
         //F(n) = F(n - 1) + F(n - 2)，其中 n > 1
-        System.out.println(new FibonacciCal().fib2(2));
+        System.out.println(new FibonacciCal().fib2(48));
     }
 
     public int fib(int n) {
