@@ -103,7 +103,7 @@ public class MyHashMap<K, V> {
         if ((table = tab) != null && size > 0) {
             for (Node<K, V> e : table) {
                 while (e != null) {
-                    if (e.value == value || (value != null && value.equals(e.value))) {
+                    if (Objects.equals(value, e.value)) {
                         return true;
                     }
                     e = e.next;
@@ -121,12 +121,12 @@ public class MyHashMap<K, V> {
     final Node<K, V> getNode(int hash, Object key) {
         Node<K, V> first;
         if (tab != null && tab.length > 0 && (first = tab[(tab.length - 1) & hash]) != null) {
-            if (first.hash == hash && (first.key == key || (key != null && key.equals(first.key)))) {
+            if (first.hash == hash && (Objects.equals(key, first.key))) {
                 return first;
             }
             Node<K, V> e = first.next;
             while (e != null) {
-                if (e.hash == hash && (e.key == key || (key != null && key.equals(e.key)))) {
+                if (e.hash == hash && (Objects.equals(key, e.key))) {
                     return e;
                 }
                 e = e.next;
@@ -160,7 +160,7 @@ public class MyHashMap<K, V> {
             size++;
         } else {
             Node<K, V> first = tab[i];
-            if (first.hash == hash && (first.key == key || (key != null && key.equals(first.key)))) {
+            if (first.hash == hash && (Objects.equals(key, first.key))) {
                 e = first;
             } else {
                 for (int j = 0; ; j++) {
@@ -170,7 +170,7 @@ public class MyHashMap<K, V> {
                         break;
                     }
 
-                    if (e.hash == hash && (e.key == key || (key != null && key.equals(e.key)))) {
+                    if (e.hash == hash && (Objects.equals(key, e.key))) {
                         break;
                     }
                 }
