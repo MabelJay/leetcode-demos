@@ -36,3 +36,15 @@ Buffer中包含两个重要的方法，即flip()和clear(),flip()为从Buffer中
 1.相对：从Buffer的当前position处开始读取或写入数据，然后将position的值按处理元素的个数增加。
 2.绝对：直接根据索引向Buffer中读取或写入数据，使用绝对方式访问Buffer里的数据时，并不会影响position的值。
 
+根据索引来取值的方式不会影响到Buffer的position
+ByteBuffer还提供了一个allocateDirect()方法来创建直接Buffer，直接Buffer创建的成本比普通Buffer的成本高，但直接
+Buffer的读取效率更高。
+由于直接Buffer的创建成本高，所以直接Buffer只适用于长生存周期的Buffer，而不适用于短生命周期、一次用完就丢弃的Buffer。
+只有ByteBuffer才提供了allocateDirect()方法。
+
+### 4.Channel
+Channel类似于传统的流对象，但有两个重要区别：
+1. Channel可以直接将指定文件的部分或全部直接映射成Buffer。
+2. 程序不能直接访问Channel中的数据，包括写入、读取都不行，Channel只能与Buffer进行交互。
+也就是说，如果要从Channel中取得数据，必须先用Buffer从Channel中取出一些数据，然后让程序从Buffer中取得这些数据。
+写入也是先将数据放入Buffer中，再将Buffer里的数据写入Channel。
