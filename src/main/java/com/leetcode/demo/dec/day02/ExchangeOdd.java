@@ -1,0 +1,40 @@
+package com.leetcode.demo.dec.day02;
+
+import java.util.Arrays;
+
+public class ExchangeOdd {
+
+    public static void main(String[] args) {
+        // 输入：nums = [1,2,3,4]
+        //输出：[1,3,2,4]
+
+        int[] nums = {1, 2, 3, 4};
+        System.out.println(Arrays.toString(new ExchangeOdd().exchange(nums)));
+    }
+
+    public int[] exchange(int[] nums) {
+        if (nums == null || nums.length == 0) return nums;
+
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            while (left < right && (nums[left] & 1) != 0) {
+                // odd
+                left++;
+            }
+            while (left < right && (nums[right] & 1) == 0) {
+                // even
+                right--;
+            }
+            if (left < right) {
+                swap(nums, left, right);
+            }
+        }
+        return nums;
+    }
+
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}

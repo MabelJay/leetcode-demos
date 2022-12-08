@@ -9,7 +9,18 @@ public class MyPow {
         //输出：0.25000
 
         double x = 2.0;
-        System.out.println(new MyPow().myPow(x, -2));
+//        System.out.println(new MyPow().myPow(x, -2));
+
+        System.out.println(new MyPow().myPow(1.15, 10) * 200000);
+//        System.out.println(new MyPow().calProfit(200000, 10, 1.15));
+    }
+
+    public double calProfit(double base, int year, double rate) {
+        double res = 0;
+        for (int i = 1; i <= year; i++) {
+            res += myPow(rate, i);
+        }
+        return base * res;
     }
 
     public double myPow(double x, int n) {

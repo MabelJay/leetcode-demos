@@ -10,7 +10,7 @@ public class CourseCanFinish {
         // 输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
         //输出：false
 
-        int[][] prerequisites = {{1, 0}, {0, 1}};
+        int[][] prerequisites = {{1, 0}};
         System.out.println(new CourseCanFinish().canFinish(2, prerequisites));
     }
 
