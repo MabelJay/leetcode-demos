@@ -7,5 +7,7 @@ public class BinaryTest {
         System.out.println(Integer.toBinaryString(num));
         System.out.println(~num);
         System.out.println((~num) - 1);
+
+        System.out.println(Math.pow(1.06, 40));
     }
 }
