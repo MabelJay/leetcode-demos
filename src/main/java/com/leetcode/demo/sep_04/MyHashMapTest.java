@@ -9,5 +9,6 @@ public class MyHashMapTest {
         System.out.println(map.size);
         System.out.println(map.get(1));
         System.out.println(map.get(2));
+        System.out.println(map);
     }
 }
